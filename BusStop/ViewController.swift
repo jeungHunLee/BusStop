@@ -21,8 +21,8 @@ class ViewController: UIViewController, XMLParserDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let key = "2iHJaiAhj3is09gMRVLduJ3n3BADIaM4/GnabUgm2z7SylYvZn3uRl3aX3dWmB8CLbDQcI5bGM4FKidusGb/Og=="
-        let url = "http://apis.data.go.kr/1613000/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?serviceKey=\(key)&cityCode=25&nodeId=DJB8001793&numOfRows=10&pageNo=1&_type=xml"
+        let key = //보안상 공개하지 않습니다.
+        let url = //보안상 공개하지 않습니다.
         
         let xmlParser = XMLParser(contentsOf: URL(string: url)!)
         xmlParser!.delegate = self
