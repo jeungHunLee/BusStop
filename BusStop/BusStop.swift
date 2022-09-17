@@ -39,7 +39,7 @@ class BusStop: NSObject, XMLParserDelegate {
     }
     
     func returnBusStopID() -> String {
-        let key = //보안상 공개하지 않습니다.
+        let key = "2iHJaiAhj3is09gMRVLduJ3n3BADIaM4/GnabUgm2z7SylYvZn3uRl3aX3dWmB8CLbDQcI5bGM4FKidusGb/Og=="
         let  busStopIDURL = "http://apis.data.go.kr/1613000/BusSttnInfoInqireService/getSttnNoList?serviceKey=\(key)&cityCode=\(cityCode)&nodeNm=\(busStopName)&nodeNo=\(busStopNumber)&numOfRows=10&pageNo=1&_type=xml"
         let encodedString = busStopIDURL.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let busStopIDXmlParser = XMLParser(contentsOf: URL(string: encodedString)!)

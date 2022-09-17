@@ -99,7 +99,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
         let busStopID = busStop.returnBusStopID()
         
-        let key = //보안상 공개하지 않습니다.
+        let key = "2iHJaiAhj3is09gMRVLduJ3n3BADIaM4/GnabUgm2z7SylYvZn3uRl3aX3dWmB8CLbDQcI5bGM4FKidusGb/Og=="
         let busStopURL = "http://apis.data.go.kr/1613000/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?serviceKey=\(key)&cityCode=\(cityCode)&nodeId=\(busStopID)&numOfRows=10&pageNo=1&_type=xml"
         
         let busStopXmlParser = XMLParser(contentsOf: URL(string: busStopURL)!)
