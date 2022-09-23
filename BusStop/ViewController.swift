@@ -6,21 +6,13 @@
 //
 
 import UIKit
+import Foundation
 
-var busInfo = [Bus]()
-
-class Bus {
-    var number = ""    //버스 번호
-    var arrTime = 0  //도착 예상시간(초)
-}
-
-
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, XMLParserDelegate {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     @IBOutlet var cityPicker: UIPickerView!
-    @IBOutlet var busStopName: UILabel!
-    @IBOutlet var busStopNumber: UILabel!
+    @IBOutlet var busStopName: UITextField!
+    @IBOutlet var busStopNumber: UITextField!
     
-    var currentElement = ""
     var b = Bus()
     let city = ["성남", "수원", "용인", "화성", "청주", "충주"]
     var cityCode = 0
@@ -36,35 +28,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         cityPicker.delegate = self
         cityPicker.dataSource = self
-    }
-    
-    //XML 파서가 start 태그를 만나면 호출되는 함수
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) -> Void {
-        currentElement = elementName
-            
-        if currentElement == "item" {
-                b = Bus()
-        }
-    }
-        
-    //현재 태그에 담겨 있는 문자열 전달
-    func parser(_ parser: XMLParser, foundCharacters string: String) -> Void {
-        switch currentElement {
-        case "routeno":    //노선 번호
-            b.number = string
-        case "arrtime":    //도착 시간
-            b.arrTime = Int(string)!
-        default:
-            break
-        }
-            //print(string)
-    }
-        
-    //XMl 파서가 end 태그를 만나면 호출되는 함수
-    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) -> Void {
-        if elementName == "item" {
-            busInfo.append(b)
-        }
+        busStopNumber.delegate = self
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -95,16 +59,34 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
+    //return 키 터치하면 url로 이동하고 키보드 내리는 메서드
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        busStopNumber.resignFirstResponder()    //호출된 first respnder를 해지(키보드 내리기)
+        return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let tableView = segue.destination as! TableView
+        
+        tableView.busStopName = busStopName.text!
+        tableView.busStopNumber = busStopNumber.text!
+        tableView.cityCode = cityCode
+    }
+    
     @IBAction func doneButton(_ sender: UIButton) {
-        let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
+        /*let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
         let busStopID = busStop.returnBusStopID()
         
-        let key = "2iHJaiAhj3is09gMRVLduJ3n3BADIaM4/GnabUgm2z7SylYvZn3uRl3aX3dWmB8CLbDQcI5bGM4FKidusGb/Og=="
-        let busStopURL = "http://apis.data.go.kr/1613000/ArvlInfoInqireService/getSttnAcctoArvlPrearngeInfoList?serviceKey=\(key)&cityCode=\(cityCode)&nodeId=\(busStopID)&numOfRows=10&pageNo=1&_type=xml"
-        
-        let busStopXmlParser = XMLParser(contentsOf: URL(string: busStopURL)!)
-        busStopXmlParser!.delegate = self
-        busStopXmlParser!.parse()
+        let arrBus = ArrBus(cityCode, busStopID)
+        arrBus.parsing()*/
+        let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
+        DispatchQueue.global(qos: .userInitiated).async {
+            let busStopID = busStop.returnBusStopID()
+            
+            let arrBus = ArrBus(self.cityCode, busStopID)
+            arrBus.parsing()
+        }
     }
     
         

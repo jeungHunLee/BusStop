@@ -15,7 +15,8 @@
 		5C95E27228D5F418005E6FD5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C95E27128D5F418005E6FD5 /* ViewController.swift */; };
 		5CF435FA28D58B2F0045E81D /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF435F928D58B2F0045E81D /* BusStop.swift */; };
 		5CF4360028D5B7020045E81D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF435FF28D5B7020045E81D /* TableViewController.swift */; };
-		5CFE4E7C28D60BBC003701BD /* ArrViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE4E7B28D60BBC003701BD /* ArrViewController.swift */; };
+		5CFE4E7C28D60BBC003701BD /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE4E7B28D60BBC003701BD /* TableView.swift */; };
+		5CFE4E8028D6C74A003701BD /* ArrBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFE4E7F28D6C74A003701BD /* ArrBus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		5C95E27128D5F418005E6FD5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5CF435F928D58B2F0045E81D /* BusStop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		5CF435FF28D5B7020045E81D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		5CFE4E7B28D60BBC003701BD /* ArrViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrViewController.swift; sourceTree = "<group>"; };
+		5CFE4E7B28D60BBC003701BD /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		5CFE4E7F28D6C74A003701BD /* ArrBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrBus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,9 @@
 			children = (
 				5C310C0228D1FD7400B6110A /* AppDelegate.swift */,
 				5C310C0428D1FD7400B6110A /* SceneDelegate.swift */,
-				5CFE4E7B28D60BBC003701BD /* ArrViewController.swift */,
+				5CFE4E7B28D60BBC003701BD /* TableView.swift */,
 				5CF435F928D58B2F0045E81D /* BusStop.swift */,
+				5CFE4E7F28D6C74A003701BD /* ArrBus.swift */,
 				5C95E27128D5F418005E6FD5 /* ViewController.swift */,
 				5CF435FF28D5B7020045E81D /* TableViewController.swift */,
 				5C310C0828D1FD7400B6110A /* Main.storyboard */,
@@ -147,9 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CFE4E8028D6C74A003701BD /* ArrBus.swift in Sources */,
 				5C95E27228D5F418005E6FD5 /* ViewController.swift in Sources */,
 				5C310C0328D1FD7400B6110A /* AppDelegate.swift in Sources */,
-				5CFE4E7C28D60BBC003701BD /* ArrViewController.swift in Sources */,
+				5CFE4E7C28D60BBC003701BD /* TableView.swift in Sources */,
 				5C310C0528D1FD7400B6110A /* SceneDelegate.swift in Sources */,
 				5CF4360028D5B7020045E81D /* TableViewController.swift in Sources */,
 				5CF435FA28D58B2F0045E81D /* BusStop.swift in Sources */,

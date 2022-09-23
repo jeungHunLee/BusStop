@@ -8,6 +8,11 @@
 import UIKit
 
 class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var cityCode = 0
+    var busStopName = ""
+    var busStopNumber = ""
+    
+    
     @IBOutlet var table: UITableView!
 
     override func viewDidLoad() {
@@ -30,10 +35,6 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     */
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return busInfo.count
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as? CustomCell else {
             return UITableViewCell()
@@ -45,15 +46,32 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let min = (busInfo[(indexPath as NSIndexPath).row].arrTime) / 60
             let sec = (busInfo[(indexPath as NSIndexPath).row].arrTime) % 60
             
-            cell.arrTime.text = "\(min)분 \(sec)초 후 도착"
+            cell.arrTime.text = "\(min)분 \(sec)초 뒤 도착"
         } else {
             cell.arrTime.text = "잠시 후 도착할 예정"
         }
         return cell
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return busInfo.count
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 70.0
+    }
+    
+    @IBAction func reload(_ sender: UIBarButtonItem) {
+        let busStop = BusStop(cityCode, busStopName, busStopNumber)
+        let busStopID = busStop.returnBusStopID()
+        
+        let arrBus = ArrBus(cityCode, busStopID)
+        arrBus.parsing()
+        
+    }
+    
+    deinit {
+        busInfo = [Bus]()
     }
 
 }
