@@ -75,18 +75,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     @IBAction func doneButton(_ sender: UIButton) {
-        /*let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
+        let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
         let busStopID = busStop.returnBusStopID()
         
         let arrBus = ArrBus(cityCode, busStopID)
-        arrBus.parsing()*/
-        let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
-        DispatchQueue.global(qos: .userInitiated).async {
-            let busStopID = busStop.returnBusStopID()
-            
-            let arrBus = ArrBus(self.cityCode, busStopID)
-            arrBus.parsing()
-        }
+        arrBus.parsing()
     }
     
         
