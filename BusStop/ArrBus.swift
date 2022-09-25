@@ -11,7 +11,8 @@ var busInfo = [Bus]()
 
 class Bus {
     var number = ""    //버스 번호
-    var arrTime = 0  //도착 예상시간(초)
+    var arrTime1 = 0    //도착 예상시간(초)
+    var arrTime2 = 0    //도착 에상시간(초)
 }
 
 class ArrBus: NSObject, XMLParserDelegate {
@@ -19,6 +20,8 @@ class ArrBus: NSObject, XMLParserDelegate {
     var currentElement = ""
     var cityCode: Int
     var busStopID: String
+    var isExisting = false
+    var arriveTime = 0
     var b = Bus()
     
     init(_ cityCode: Int, _ busStopID: String) {
@@ -39,20 +42,45 @@ class ArrBus: NSObject, XMLParserDelegate {
     func parser(_ parser: XMLParser, foundCharacters string: String) -> Void {
         switch currentElement {
         case "routeno":    //노선 번호
-            b.number = string
+            for i in 0..<busInfo.count {
+                if busInfo[i].number == string {
+                    isExisting = true
+                }
+            }
+            
+            if !isExisting {     //존재하지 않으면 추가
+                b.number = string
+                b.arrTime1 = arriveTime
+            }
+            else {
+                for i in 0..<busInfo.count {
+                    if busInfo[i].number == string {
+                        busInfo[i].arrTime2 = arriveTime
+                        if busInfo[i].arrTime1 > busInfo[i].arrTime2 {
+                            (busInfo[i].arrTime1, busInfo[i].arrTime2) = (busInfo[i].arrTime2, busInfo[i].arrTime1)
+                        }
+                    }
+                }
+
+            }
+            
         case "arrtime":    //도착 시간
-            b.arrTime = Int(string)!
+            arriveTime = Int(string)!
+            
         default:
             break
         }
-            //print(string)
     }
         
     //XMl 파서가 end 태그를 만나면 호출되는 함수
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) -> Void {
         if elementName == "item" {
-            busInfo.append(b)
+            if b.number != "" {
+                busInfo.append(b)
+            }
         }
+        
+        isExisting = false
     }
     
     func parsing() {
@@ -62,6 +90,6 @@ class ArrBus: NSObject, XMLParserDelegate {
         busStopXmlParser!.delegate = self
         busStopXmlParser!.parse()
         
-        busInfo.sort(by: { $0.arrTime < $1.arrTime })
+        busInfo.sort(by: { $0.number < $1.number })
     }
 }

@@ -81,7 +81,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let arrBus = ArrBus(cityCode, busStopID)
         arrBus.parsing()
     }
-    
         
     /*
     // MARK: - Navigation

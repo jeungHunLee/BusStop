@@ -42,23 +42,38 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         cell.busNumber.text = "\(busInfo[(indexPath as NSIndexPath).row].number)"
         
-        if busInfo[(indexPath as NSIndexPath).row].arrTime > 60 {
-            let min = (busInfo[(indexPath as NSIndexPath).row].arrTime) / 60
-            let sec = (busInfo[(indexPath as NSIndexPath).row].arrTime) % 60
+        if busInfo[(indexPath as NSIndexPath).row].arrTime1 > 60 {
+            let min = (busInfo[(indexPath as NSIndexPath).row].arrTime1) / 60
+            let sec = (busInfo[(indexPath as NSIndexPath).row].arrTime1) % 60
             
-            cell.arrTime.text = "\(min)분 \(sec)초 뒤 도착"
+            cell.arrTime1.text = "\(min)분 \(sec)초 뒤 도착"
         } else {
-            cell.arrTime.text = "잠시 후 도착할 예정"
+            cell.arrTime1.text = "잠시 후 도착할 예정"
+        }
+        
+        if busInfo[(indexPath as NSIndexPath).row].arrTime2 == 0 {
+            cell.arrTime2.text = "도착 예정 정보 없음"
+        } else {
+            if busInfo[(indexPath as NSIndexPath).row].arrTime2 > 60 {
+                let min = (busInfo[(indexPath as NSIndexPath).row].arrTime2) / 60
+                let sec = (busInfo[(indexPath as NSIndexPath).row].arrTime2) % 60
+                
+                cell.arrTime2.text = "\(min)분 \(sec)초 뒤 도착"
+            } else {
+                cell.arrTime2.text = "잠시 후 도착할 예정"
+            }
         }
         return cell
     }
     
+    //행 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return busInfo.count
     }
     
+    //행 높이
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        return 100.0
     }
     
     @IBAction func reload(_ sender: UIBarButtonItem) {
@@ -78,5 +93,6 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 class CustomCell: UITableViewCell {
     @IBOutlet var busNumber: UILabel!
-    @IBOutlet var arrTime: UILabel!
+    @IBOutlet var arrTime1: UILabel!
+    @IBOutlet var arrTime2: UILabel!
 }
