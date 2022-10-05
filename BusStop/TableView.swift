@@ -7,13 +7,15 @@
 
 import UIKit
 
+var busInfo = [Bus]()
+
 class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var cityCode = 0
     var busStopName = ""
     var busStopNumber = ""
     
-    
     @IBOutlet var table: UITableView!
+    @IBOutlet var busStopNameLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         table.delegate = self
         table.dataSource = self
+        
+        busStopNameLabel.text! = busStopName
     }
     
 
@@ -52,7 +56,7 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         if busInfo[(indexPath as NSIndexPath).row].arrTime2 == 0 {
-            cell.arrTime2.text = "도착 예정 정보 없음"
+            cell.arrTime2.text = "도착 정보 없음"
         } else {
             if busInfo[(indexPath as NSIndexPath).row].arrTime2 > 60 {
                 let min = (busInfo[(indexPath as NSIndexPath).row].arrTime2) / 60
@@ -60,7 +64,7 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 
                 cell.arrTime2.text = "\(min)분 \(sec)초 뒤 도착"
             } else {
-                cell.arrTime2.text = "잠시 후 도착할 예정"
+                cell.arrTime2.text = "잠시 후 도착 예정"
             }
         }
         return cell
@@ -76,14 +80,14 @@ class TableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 100.0
     }
     
-    @IBAction func reload(_ sender: UIBarButtonItem) {
+    /*@IBAction func reload(_ sender: UIBarButtonItem) {
         let busStop = BusStop(cityCode, busStopName, busStopNumber)
         let busStopID = busStop.returnBusStopID()
         
         let arrBus = ArrBus(cityCode, busStopID)
         arrBus.parsing()
         
-    }
+    }*/
     
     deinit {
         busInfo = [Bus]()

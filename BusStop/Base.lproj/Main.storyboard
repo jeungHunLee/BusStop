@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--버스 정거장 검색-->
+        <!--버스 정류장 검색-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BusStop" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정거장명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JA-xJ-z1d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정류장명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JA-xJ-z1d">
                                 <rect key="frame" x="16" y="420" width="59" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Lc3-kF-FFe"/>
@@ -45,7 +45,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정거장 번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIC-ad-aO4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정류장 번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIC-ad-aO4">
                                 <rect key="frame" x="16" y="491" width="358" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="LBC-gf-Li8"/>
@@ -98,7 +98,7 @@
                             <constraint firstItem="UIC-ad-aO4" firstAttribute="top" secondItem="8yk-eu-mrk" secondAttribute="bottom" constant="8" id="yuO-jJ-KKg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="버스 정거장 검색" id="HFT-gM-OFf"/>
+                    <navigationItem key="navigationItem" title="버스 정류장 검색" id="HFT-gM-OFf"/>
                     <connections>
                         <outlet property="busStopName" destination="8yk-eu-mrk" id="7bJ-jm-hyy"/>
                         <outlet property="busStopNumber" destination="yEk-NH-DyK" id="qdR-0e-Qig"/>
@@ -107,36 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="95"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="jVw-RW-Wrq">
-            <objects>
-                <tableViewController id="Ayu-0d-s3D" customClass="TableViewController" customModule="BusStop" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="rvT-zk-KcP">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="58" id="3Ue-7s-Eub">
-                                <rect key="frame" x="0.0" y="50" width="390" height="58"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Ue-7s-Eub" id="k4U-qg-fqN">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="58"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Ayu-0d-s3D" id="YT1-Lz-9Rx"/>
-                            <outlet property="delegate" destination="Ayu-0d-s3D" id="dbc-LF-oIf"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="0tx-nu-UyH"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IKa-Ub-tNR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2231" y="-390"/>
+            <point key="canvasLocation" x="1097" y="95"/>
         </scene>
         <!--Table View-->
         <scene sceneID="AlY-iP-kVd">
@@ -146,9 +117,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7mE-MI-vOz">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7mE-MI-vOz">
+                                <rect key="frame" x="0.0" y="159" width="390" height="651"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="117" id="F7Y-mY-nLP" customClass="CustomCell" customModule="BusStop" customModuleProvider="target">
@@ -158,28 +128,39 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="117"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bus number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4r-L7-ggv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bus number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4r-L7-ggv">
                                                     <rect key="frame" x="20" y="11" width="350" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="350" id="aNp-Xa-xLk"/>
+                                                        <constraint firstAttribute="height" constant="21" id="zng-TG-K5X"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="arrive time1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-vz-o2d">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="arrive time1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybE-vz-o2d">
                                                     <rect key="frame" x="20" y="40" width="350" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="arrive time2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-YR-UQS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="arrive time2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk7-YR-UQS">
                                                     <rect key="frame" x="20" y="69" width="350" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ybE-vz-o2d" firstAttribute="trailing" secondItem="Mk7-YR-UQS" secondAttribute="trailing" id="LcR-Bc-FG9"/>
+                                                <constraint firstItem="t4r-L7-ggv" firstAttribute="leading" secondItem="ybE-vz-o2d" secondAttribute="leading" id="SiF-Q4-riq"/>
+                                                <constraint firstItem="t4r-L7-ggv" firstAttribute="trailing" secondItem="ybE-vz-o2d" secondAttribute="trailing" id="Uqk-mq-QbM"/>
+                                                <constraint firstItem="ybE-vz-o2d" firstAttribute="leading" secondItem="Mk7-YR-UQS" secondAttribute="leading" id="ZWE-IL-dBa"/>
+                                                <constraint firstItem="Mk7-YR-UQS" firstAttribute="top" secondItem="ybE-vz-o2d" secondAttribute="bottom" constant="8" id="cHs-cT-NyR"/>
+                                                <constraint firstItem="t4r-L7-ggv" firstAttribute="top" secondItem="99m-co-29p" secondAttribute="topMargin" id="iQE-9L-ym3"/>
+                                                <constraint firstItem="ybE-vz-o2d" firstAttribute="top" secondItem="t4r-L7-ggv" secondAttribute="bottom" constant="8" id="llH-l3-l50"/>
+                                                <constraint firstItem="t4r-L7-ggv" firstAttribute="leading" secondItem="99m-co-29p" secondAttribute="leadingMargin" id="rMM-Pr-9nA"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="arrTime1" destination="ybE-vz-o2d" id="j0u-Ff-leC"/>
@@ -189,9 +170,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bus Stop Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uL-SR-nrq">
+                                <rect key="frame" x="16" y="91" width="358" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="QMQ-NX-gV4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LzN-Vj-QiZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7mE-MI-vOz" firstAttribute="top" secondItem="8uL-SR-nrq" secondAttribute="bottom" constant="8" id="HXT-sp-YRs"/>
+                            <constraint firstItem="7mE-MI-vOz" firstAttribute="bottom" secondItem="LzN-Vj-QiZ" secondAttribute="bottom" id="Mkd-lk-iRX"/>
+                            <constraint firstItem="8uL-SR-nrq" firstAttribute="leading" secondItem="PHL-Tx-OAb" secondAttribute="leadingMargin" id="XdR-aP-UQx"/>
+                            <constraint firstItem="8uL-SR-nrq" firstAttribute="top" secondItem="LzN-Vj-QiZ" secondAttribute="top" id="Xpp-hQ-PTY"/>
+                            <constraint firstItem="8uL-SR-nrq" firstAttribute="centerX" secondItem="7mE-MI-vOz" secondAttribute="centerX" id="ktq-qe-1sS"/>
+                            <constraint firstItem="7mE-MI-vOz" firstAttribute="leading" secondItem="LzN-Vj-QiZ" secondAttribute="leading" id="p5L-3Q-QpK"/>
+                            <constraint firstItem="8uL-SR-nrq" firstAttribute="trailing" secondItem="PHL-Tx-OAb" secondAttribute="trailingMargin" id="rSx-f8-g9G"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CV9-Y1-E53">
                         <barButtonItem key="rightBarButtonItem" image="arrow.counterclockwise" catalog="system" id="Taj-RS-xad">
@@ -201,12 +200,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="busStopNameLabel" destination="8uL-SR-nrq" id="YRF-1V-vF1"/>
                         <outlet property="table" destination="7mE-MI-vOz" id="1Al-08-fdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6E-TS-Fqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189.2307692307691" y="307.81990521327015"/>
+            <point key="canvasLocation" x="1990.7692307692307" y="94.549763033175353"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="y8l-v5-L6Y">

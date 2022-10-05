@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet var busStopNumber: UITextField!
     
     var b = Bus()
-    let city = ["성남", "수원", "용인", "화성", "청주", "충주"]
+    let city = ["성남", "수원", "용인", "화성", "천안", "대전", "청주", "충주", "울산"]
     var cityCode = 0
     var seletedCity = ""
 
@@ -52,10 +52,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             cityCode = 31190
         } else if city[row] == "화성" {
             cityCode = 31240
+        } else if city[row] == "천안" {
+            cityCode = 34010
+        } else if city[row] == "대전" {
+            cityCode = 25
         } else if city[row] == "청주" {
             cityCode = 33010
         } else if city[row] == "충주" {
             cityCode = 33020
+        } else if city[row] == "울산" {
+            cityCode = 26
         }
     }
     
@@ -77,9 +83,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBAction func doneButton(_ sender: UIButton) {
         let busStop = BusStop(cityCode, busStopName.text!, busStopNumber.text!)
         let busStopID = busStop.returnBusStopID()
-        
+          
         let arrBus = ArrBus(cityCode, busStopID)
         arrBus.parsing()
+        //arrBus.getData()
     }
         
     /*
